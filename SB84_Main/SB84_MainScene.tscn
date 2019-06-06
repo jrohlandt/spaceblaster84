@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://SB84_Main/SB84_MainScene.gd" type="Script" id=1]
+[ext_resource path="res://SB84_Main/dynamicfont_chintzy.tres" type="DynamicFont" id=2]
+
+[node name="SB84_Root" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Label_info" type="Label" parent="."]
+margin_left = 38.4734
+margin_top = 1592.63
+margin_right = 1024.47
+margin_bottom = 1843.63
+custom_fonts/font = ExtResource( 2 )
+text = "Info"
