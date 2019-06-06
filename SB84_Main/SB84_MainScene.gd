@@ -14,9 +14,12 @@ func _process(delta):
 	if gameIsRunning == false:
 		if Input.is_action_pressed("ui_accept"):
 			gameIsRunning = true
-			get_node("Label_info").set_text("Running")
+			#get_node("Label_info").set_text("Running")
+			$HUD_Root.setRunning()
+			
 	else:
 		if Input.is_action_pressed("ui_cancel"):
 			gameIsRunning = false
-			get_node("Label_info").set_text("Game over")
+			$HUD_Root.setGameOver(2434329)
+			#get_node("Label_info").set_text("Game over")
 			

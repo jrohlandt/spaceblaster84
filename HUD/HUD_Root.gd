@@ -9,7 +9,7 @@ extends Node
 func _ready():
 	pass # Replace with function body.
 
-func setGameOver(highScore):
+func setGameOver(highScore: int):
 	get_node("Label_Game_Over").set_text("GAME OVER:\n\nHigh Score:\n" + str(highScore) + "\n\n\nPress Enter to\n\nPlay Again")
 	get_node("Label_Game_Over").show()
 
