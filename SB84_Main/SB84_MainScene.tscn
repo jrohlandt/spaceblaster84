@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://SB84_Main/SB84_MainScene.gd" type="Script" id=1]
 [ext_resource path="res://SB84_Main/dynamicfont_chintzy.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Background/BG_Root.tscn" type="PackedScene" id=3]
 
 [node name="SB84_Root" type="Node"]
 script = ExtResource( 1 )
@@ -13,3 +14,5 @@ margin_right = 1024.47
 margin_bottom = 1843.63
 custom_fonts/font = ExtResource( 2 )
 text = "Info"
+
+[node name="BG_Root" parent="." instance=ExtResource( 3 )]

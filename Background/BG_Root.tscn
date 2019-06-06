@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Background/BG_Root.gd" type="Script" id=1]
+[ext_resource path="res://Background/Image/Backdrop.png" type="Texture" id=2]
+[ext_resource path="res://Background/Image/Nebula.png" type="Texture" id=3]
+[ext_resource path="res://Background/Image/Stars.png" type="Texture" id=4]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+
+[node name="BG_Root" type="Node"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource( 1 )
+
+[node name="Sprite_Background" type="Sprite" parent="ParallaxBackground"]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 0, 1920 )
+
+[node name="Sprite_Nebula" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+modulate = Color( 1, 1, 1, 0.705882 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 1, 1.1 )
+motion_mirroring = Vector2( 0, 1920 )
+
+[node name="Sprite_Stars" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+material = SubResource( 1 )
+texture = ExtResource( 4 )
+centered = false
