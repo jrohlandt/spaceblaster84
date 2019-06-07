@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Rolemusic_-_01_-_A_ninja_among_culturachippers.ogg-6c4f6c7636ca59a94a3ec323a25d7d1a.oggstr"
+
+[deps]
+
+source_file="res://Music/Rolemusic_-_01_-_A_ninja_among_culturachippers.ogg"
+dest_files=[ "res://.import/Rolemusic_-_01_-_A_ninja_among_culturachippers.ogg-6c4f6c7636ca59a94a3ec323a25d7d1a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

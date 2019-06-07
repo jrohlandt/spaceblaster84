@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://SB84_Main/SB84_MainScene.gd" type="Script" id=1]
 [ext_resource path="res://SB84_Main/dynamicfont_chintzy.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Background/BG_Root.tscn" type="PackedScene" id=3]
 [ext_resource path="res://HUD/HUD_Root.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Music/Music_Root.tscn" type="PackedScene" id=5]
 
 [node name="SB84_Root" type="Node"]
 script = ExtResource( 1 )
@@ -19,3 +20,5 @@ text = "Info"
 [node name="BG_Root" parent="." instance=ExtResource( 3 )]
 
 [node name="HUD_Root" parent="." instance=ExtResource( 4 )]
+
+[node name="Music_Root" parent="." instance=ExtResource( 5 )]

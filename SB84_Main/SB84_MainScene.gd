@@ -16,15 +16,19 @@ func start_game():
 	$HUD_Root.setScore(score)
 	$Label_info.set_text("Running")
 	$HUD_Root.setRunning()
+	$Music_Root.set_music("level_01")
 	
 func run_game():
+	
 	if Input.is_action_pressed("ui_cancel"):
 		gameIsRunning = false
 		$Label_info.set_text("Game Over")
 		if score > highScore:
 			highScore = score
 		$HUD_Root.setGameOver(highScore)
-	elif Input.is_action_just_pressed("ui_select"):
+		$Music_Root.set_music("menu")
+	
+	if Input.is_action_just_pressed("ui_select"):
 		score += 1
 		$HUD_Root.setScore(score)
 		
@@ -32,8 +36,8 @@ func run_game():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#if Input.is_action_pressed("ui_quit"):
-	#	quit()
+	if Input.is_action_pressed("ui_quit"):
+		get_tree().quit()
 		
 	if gameIsRunning == true:
 		run_game()
