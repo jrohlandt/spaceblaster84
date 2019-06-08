@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var gameIsRunning: bool = false
 var maxSpeed = 700
-var acceleration = 20
+var acceleration = 80
 var kinematicSpeed = Vector2(0, 0)
 var shipPaddingX = 58
 var shipPaddingY = 120
@@ -37,8 +37,8 @@ func _physics_process(delta):
 			if kinematicSpeed.x < maxSpeed:
 				kinematicSpeed = kinematicSpeed + Vector2(acceleration, 0)
 	else:
-		kinematicSpeed.x = lerp(kinematicSpeed.x, 0, .03)
-		kinematicSpeed.y = lerp(kinematicSpeed.y, 0, .03)
+		kinematicSpeed.x = lerp(kinematicSpeed.x, 0, .12)
+		kinematicSpeed.y = lerp(kinematicSpeed.y, 0, .12)
 		
 	move_and_slide(kinematicSpeed)
 
