@@ -3,9 +3,12 @@ extends KinematicBody2D
 var gameIsRunning: bool = false
 var maxSpeed = 700
 var acceleration = 80
-var kinematicSpeed = Vector2(0, 0)
-var shipPaddingX = 58
-var shipPaddingY = 120
+var kinematicSpeed: Vector2 = Vector2(0, 0)
+var shipPaddingX: int = 58
+var shipPaddingY: int = 120
+
+var LASER = preload("res://Lasers/Laser.tscn")
+var laserCount: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,6 +23,8 @@ func _physics_process(delta):
 		
 		if Input.is_action_pressed("ui_accept"):
 			gameIsRunning = true
+		
+		return
 		
 	if movementKeyIsBeingPressed():
 		if Input.is_action_pressed("ui_up"):
@@ -62,6 +67,13 @@ func _physics_process(delta):
 	if position.x > OS.get_window_size().x - shipPaddingX:
 		kinematicSpeed.x = 0
 		position.x = OS.get_window_size().x - shipPaddingX
+		
+	if Input.is_action_just_pressed("ui_select"):
+		laserCount += 1
+		var laser = LASER.instance()
+		laser.set_name("Laser" + str(laserCount))
+		get_parent().add_child(laser)
+		laser.setPosition(position + Vector2(0, -92))
 		
 	if Input.is_action_pressed("ui_cancel"):
 		kinematicSpeed = Vector2(0, 0)

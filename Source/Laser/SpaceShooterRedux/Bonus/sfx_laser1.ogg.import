@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sfx_laser1.ogg-993e6935837f1da2b3e6bdf95b355758.oggstr"
+
+[deps]
+
+source_file="res://Source/Laser/SpaceShooterRedux/Bonus/sfx_laser1.ogg"
+dest_files=[ "res://.import/sfx_laser1.ogg-993e6935837f1da2b3e6bdf95b355758.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
