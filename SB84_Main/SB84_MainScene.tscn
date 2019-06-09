@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://SB84_Main/SB84_MainScene.gd" type="Script" id=1]
 [ext_resource path="res://SB84_Main/dynamicfont_chintzy.tres" type="DynamicFont" id=2]
-[ext_resource path="res://Background/BG_Root.tscn" type="PackedScene" id=3]
-[ext_resource path="res://HUD/HUD_Root.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Music/Music_Root.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Ship/Ship_Root.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Rocks/Rock_Root.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Background/BG_Root.tscn" type="PackedScene" id=4]
+[ext_resource path="res://HUD/HUD_Root.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Music/Music_Root.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Ship/Ship_Root.tscn" type="PackedScene" id=7]
 
 [node name="SB84_Root" type="Node"]
 script = ExtResource( 1 )
@@ -18,10 +19,12 @@ margin_bottom = 1843.63
 custom_fonts/font = ExtResource( 2 )
 text = "Info"
 
-[node name="BG_Root" parent="." instance=ExtResource( 3 )]
+[node name="Rock_Root" parent="." instance=ExtResource( 3 )]
 
-[node name="HUD_Root" parent="." instance=ExtResource( 4 )]
+[node name="BG_Root" parent="." instance=ExtResource( 4 )]
 
-[node name="Music_Root" parent="." instance=ExtResource( 5 )]
+[node name="HUD_Root" parent="." instance=ExtResource( 5 )]
 
-[node name="Ship_Root" parent="." instance=ExtResource( 6 )]
+[node name="Music_Root" parent="." instance=ExtResource( 6 )]
+
+[node name="Ship_Root" parent="." instance=ExtResource( 7 )]

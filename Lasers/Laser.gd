@@ -25,3 +25,11 @@ func _on_VisibilityNotifier2D_screen_exited():
 
 func setPosition(pos: Vector2) -> void:
 	position = pos
+
+
+func _on_Laser_body_entered(body):
+	if body != null:
+		if "Ship" in body.name: return
+	if body != null && "Rock" in body.name:
+		body.durability -= 1
+		queue_free()

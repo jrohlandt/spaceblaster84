@@ -8,16 +8,20 @@ radius = 45.0
 
 [node name="Rock_Medium" type="Node"]
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
+[node name="RigidBody2D_Rock" type="RigidBody2D" parent="."]
+position = Vector2( 524.696, -155.083 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Sprite" type="Sprite" parent="RigidBody2D"]
+[node name="Sprite" type="Sprite" parent="RigidBody2D_Rock"]
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D_Rock"]
 position = Vector2( 2.3799, 0.677948 )
 shape = SubResource( 1 )
 
-[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="RigidBody2D"]
-[connection signal="screen_exited" from="RigidBody2D/VisibilityNotifier2D" to="RigidBody2D" method="_on_VisibilityNotifier2D_screen_exited"]
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="RigidBody2D_Rock"]
+[connection signal="screen_exited" from="RigidBody2D_Rock/VisibilityNotifier2D" to="RigidBody2D_Rock" method="_on_VisibilityNotifier2D_screen_exited"]

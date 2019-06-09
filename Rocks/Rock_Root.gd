@@ -15,28 +15,27 @@ func _process(delta):
 	
 	if createRock == false: return
 	
-	var number = int(rand_range(1, 3))
-	
+	var number = int(rand_range(1, 4))
 	if number == 1:
 		var rock = RockS.instance()
-		add_child(rock)
-		rock.set_owner(self)
-		print("small")
+		rock.set_name("rock_small")
+		get_parent().add_child(rock)
+#		rock.set_owner(self)
 	elif number == 2:
 		var rock = RockM.instance()
-		add_child(rock)
-		rock.set_owner(self)
-		print("medium")
+		rock.set_name("rock_medium")		
+		get_parent().add_child(rock)
+#		rock.set_owner(self)
 	elif number == 3:
 		var rock = RockL.instance()
-		add_child(rock)
-		rock.set_owner(self)
-		print("large")
+		rock.set_name("rock_large")		
+		get_parent().add_child(rock)
+#		rock.set_owner(self)
 	
 	createRock = false
 		
 
 
 func _on_Timer_timeout():
-	#if Globals.get("gameRunning") == true
-	createRock = true
+	if ProjectSettings.get("gameIsRunning") == true:
+		createRock = true

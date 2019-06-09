@@ -12,17 +12,16 @@ var laserCount: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#get_node(".").move(Vector2(540, 1450))
-	pass
+	parkShip()
 	
 func _physics_process(delta):
 	
-	if gameIsRunning == false:
-		position.x = get_viewport().get_visible_rect().size.x / 2
-		position.y = get_viewport().get_visible_rect().size.y - 480
+	if ProjectSettings.get("gameIsRunning") == false:
+		parkShip()
 		
-		if Input.is_action_pressed("ui_accept"):
-			gameIsRunning = true
+		
+#		if Input.is_action_pressed("ui_accept"):
+#			gameIsRunning = true
 		
 		return
 		
@@ -30,7 +29,6 @@ func _physics_process(delta):
 		if Input.is_action_pressed("ui_up"):
 			if kinematicSpeed.y > -maxSpeed:
 				kinematicSpeed = kinematicSpeed + Vector2(0, -acceleration)
-				print("up")
 		if Input.is_action_pressed("ui_down"):
 			if kinematicSpeed.y < maxSpeed:
 				kinematicSpeed = kinematicSpeed + Vector2(0, acceleration)
@@ -45,8 +43,17 @@ func _physics_process(delta):
 		kinematicSpeed.x = lerp(kinematicSpeed.x, 0, .12)
 		kinematicSpeed.y = lerp(kinematicSpeed.y, 0, .12)
 		
-	move_and_slide(kinematicSpeed)
+	kinematicSpeed = move_and_slide(kinematicSpeed)
 
+#	print(get_slide_count())
+	if get_slide_count() > 0:
+		print('colliding')
+		for i in range(get_slide_count()):
+			print(get_slide_collision(i).collider.name)
+			if "Rock" in get_slide_collision(i).collider.name:
+				kinematicSpeed = Vector2(0, 0)
+				ProjectSettings.set("gameLevel", false)
+			
 	# check top limit
 	if position.y < shipPaddingY:
 		kinematicSpeed.y = 0
@@ -54,7 +61,6 @@ func _physics_process(delta):
 		
 	# check bottom limit
 	if position.y > get_viewport().get_visible_rect().size.y - shipPaddingY:
-		print(get_viewport().get_visible_rect().size.y)
 		kinematicSpeed.y = 0
 		position.y = get_viewport().get_visible_rect().size.y - shipPaddingY
 	
@@ -74,10 +80,10 @@ func _physics_process(delta):
 		laser.set_name("Laser" + str(laserCount))
 		get_parent().add_child(laser)
 		laser.setPosition(position + Vector2(0, -92))
-		
-	if Input.is_action_pressed("ui_cancel"):
-		kinematicSpeed = Vector2(0, 0)
-		gameIsRunning = false
+#
+#	if Input.is_action_pressed("ui_cancel"):
+#		kinematicSpeed = Vector2(0, 0)
+#		ProjectSettings.set("gameLevel", false)
 		
 		
 func movementKeyIsBeingPressed() -> bool:
@@ -95,8 +101,9 @@ func movementKeyIsBeingPressed() -> bool:
 		return true
 		
 	return false
-	
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
+
+func parkShip() -> void: 
+	position.x = get_viewport().get_visible_rect().size.x / 2
+	position.y = get_viewport().get_visible_rect().size.y - 480	
+
