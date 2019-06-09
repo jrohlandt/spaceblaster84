@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Rocks/Rock_Small.gd" type="Script" id=1]
+[ext_resource path="res://Rocks/Image/small_rock.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 23.0
+
+[node name="Rock_Small" type="Node"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D"]
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 2.3799, 0.677948 )
+shape = SubResource( 1 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="RigidBody2D"]
+[connection signal="screen_exited" from="RigidBody2D/VisibilityNotifier2D" to="RigidBody2D" method="_on_VisibilityNotifier2D_screen_exited"]
