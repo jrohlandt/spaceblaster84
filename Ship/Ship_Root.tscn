@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Ship/KinematicBody2D_Ship.gd" type="Script" id=1]
 [ext_resource path="res://Ship/Image/alien2.png" type="Texture" id=2]
+[ext_resource path="res://Sound/shoot_small.wav" type="AudioStream" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 55.0
@@ -18,3 +19,7 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ship"]
 shape = SubResource( 1 )
+
+[node name="ShootSound" type="AudioStreamPlayer" parent="Ship"]
+stream = ExtResource( 3 )
+volume_db = -10.706

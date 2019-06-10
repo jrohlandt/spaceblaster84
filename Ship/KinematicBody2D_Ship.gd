@@ -84,6 +84,7 @@ func _physics_process(delta):
 		laser.set_name("Laser" + str(laserCount))
 		get_parent().add_child(laser)
 		laser.setPosition(position + Vector2(0, -92))
+		$ShootSound.play()
 #
 #	if Input.is_action_pressed("ui_cancel"):
 #		kinematicSpeed = Vector2(0, 0)

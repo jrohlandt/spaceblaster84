@@ -18,6 +18,7 @@ func _physics_process(delta):
 
 	if durability <= 0:
 		ProjectSettings.set("gameScore", ProjectSettings.get("gameScore") + points)
+		ProjectSettings.set("triggerExplosionSound", true)
 		get_node(".").queue_free()
 		
 				

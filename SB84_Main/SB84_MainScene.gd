@@ -4,6 +4,7 @@ extends Node
 var gameIsRunning :bool = false
 var score: int = 0
 var highScore: int = 0
+var triggerExplosionSound = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -48,6 +49,9 @@ func run_game(delta):
 		$HUD_Root.setGameOver(highScore)
 		$Music_Root.set_music("menu")
 	
+	if ProjectSettings.get("triggerExplosionSound") == true:
+		$Explosion.play()
+		ProjectSettings.set("triggerExplosionSound", false)
 #	if Input.is_action_just_pressed("ui_select"):
 #		score += 1
 #		$HUD_Root.setScore(score)

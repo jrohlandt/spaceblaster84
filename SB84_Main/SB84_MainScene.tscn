@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://SB84_Main/SB84_MainScene.gd" type="Script" id=1]
 [ext_resource path="res://SB84_Main/dynamicfont_chintzy.tres" type="DynamicFont" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://HUD/HUD_Root.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Music/Music_Root.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Ship/Ship_Root.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sound/Explosion.tscn" type="PackedScene" id=8]
 
 [node name="SB84_Root" type="Node"]
 script = ExtResource( 1 )
@@ -28,3 +29,5 @@ text = "Info"
 [node name="Music_Root" parent="." instance=ExtResource( 6 )]
 
 [node name="Ship_Root" parent="." instance=ExtResource( 7 )]
+
+[node name="Explosion" parent="." instance=ExtResource( 8 )]
