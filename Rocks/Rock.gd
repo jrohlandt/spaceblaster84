@@ -19,8 +19,8 @@ func _physics_process(delta):
 	if durability <= 0:
 		ProjectSettings.set("gameScore", ProjectSettings.get("gameScore") + points)
 		get_node(".").queue_free()
-
-
+		
+				
 func _on_VisibilityNotifier2D_screen_exited():
 	#print(get_node("."))
 	get_node(".").queue_free()

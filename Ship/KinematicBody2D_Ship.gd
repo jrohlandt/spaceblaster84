@@ -43,8 +43,12 @@ func _physics_process(delta):
 		kinematicSpeed.x = lerp(kinematicSpeed.x, 0, .12)
 		kinematicSpeed.y = lerp(kinematicSpeed.y, 0, .12)
 		
-	kinematicSpeed = move_and_slide(kinematicSpeed)
-
+#	kinematicSpeed = kinematicSpeed.normalized() * 
+#	kinematicSpeed = move_and_slide(kinematicSpeed * delta)
+	var collision = move_and_collide(kinematicSpeed * delta)
+	if collision:
+		print(collision.collider.name)
+	
 #	print(get_slide_count())
 	if get_slide_count() > 0:
 		print('colliding')

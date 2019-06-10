@@ -9,15 +9,12 @@ height = 114.0
 
 [node name="Ship_Root" type="Node"]
 
-[node name="KinematicBody2D_Ship" type="KinematicBody2D" parent="."]
+[node name="Ship" type="KinematicBody2D" parent="."]
 position = Vector2( 540, 1450 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
-[node name="Sprite" type="Sprite" parent="KinematicBody2D_Ship"]
+[node name="Sprite" type="Sprite" parent="Ship"]
 texture = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D_Ship"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ship"]
 shape = SubResource( 1 )
