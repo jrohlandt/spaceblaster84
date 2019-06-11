@@ -25,3 +25,8 @@ func _physics_process(delta):
 func _on_VisibilityNotifier2D_screen_exited():
 	#print(get_node("."))
 	get_node(".").queue_free()
+
+func _on_RigidBody2D_Rock_body_entered(body):
+	if body != null:
+		if "Ship" in body.name:
+			ProjectSettings.set("gameLevel", false)

@@ -1,10 +1,10 @@
 extends Node
 
 # Member variables
-var gameIsRunning :bool = false
+#var gameIsRunning :bool = false
 var score: int = 0
 var highScore: int = 0
-var triggerExplosionSound = false
+#var triggerExplosionSound = false
 
 
 # Called when the node enters the scene tree for the first time.

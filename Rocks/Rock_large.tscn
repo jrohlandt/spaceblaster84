@@ -10,10 +10,9 @@ radius = 80.0
 
 [node name="RigidBody2D_Rock" type="RigidBody2D" parent="."]
 position = Vector2( 574.639, -200.845 )
+contacts_reported = 5
+contact_monitor = true
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="RigidBody2D_Rock"]
 texture = ExtResource( 2 )
@@ -23,4 +22,5 @@ position = Vector2( -2.78952, -8.36853 )
 shape = SubResource( 1 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="RigidBody2D_Rock"]
+[connection signal="body_entered" from="RigidBody2D_Rock" to="RigidBody2D_Rock" method="_on_RigidBody2D_Rock_body_entered"]
 [connection signal="screen_exited" from="RigidBody2D_Rock/VisibilityNotifier2D" to="RigidBody2D_Rock" method="_on_VisibilityNotifier2D_screen_exited"]
