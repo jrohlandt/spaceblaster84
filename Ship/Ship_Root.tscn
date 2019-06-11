@@ -18,6 +18,7 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ship"]
+visible = false
 shape = SubResource( 1 )
 
 [node name="ShootSound" type="AudioStreamPlayer" parent="Ship"]
